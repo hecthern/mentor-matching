@@ -1,0 +1,12 @@
+## Generated files
+.vs/*
+bin/*
+obj/*
+
+*.exe
+*.dll
+*.lib
+*.pdb
+*.wim
+*.zip
+*.gz
