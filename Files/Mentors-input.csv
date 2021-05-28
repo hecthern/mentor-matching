@@ -1,0 +1,55 @@
+Survey Number,Role,Band,Alias,Name,CareerAdvice,SkillsGrowth,ExpandNetwork,LifeAdvice,SocialConnection,LearnNewDiscipline,LearnNewTech,NewCareer
+22,PM,3,daniha@microsoft.com,Dani Halfin,1,1,0,0,0,0,0,1
+25,PM,3,akgoel@microsoft.com,Akshat Goel,1,1,0,0,0,0,0,0
+26,PM,3,beccaree@microsoft.com,Becca McGarr,1,0,1,1,0,0,0,1
+29,Data Sci,3,radintak@microsoft.com,Rama Mohan Rao Dintakurthi,1,1,0,0,0,0,1,0
+35,Dev,3,qiazhang@microsoft.com,Qian Zhang,1,1,1,0,1,1,1,0
+36,PM,4,ankurar@microsoft.com,Ankur Arora,1,1,1,1,1,1,1,0
+37,Dev,3,saguthi@microsoft.com,Sai Pujitha Guthi,1,0,0,0,1,1,0,1
+39,PM,2,sopand@microsoft.com,Sophia Pandey,0,1,1,0,0,1,0,0
+40,Cust Eng,3,saqibz@microsoft.com,Saqib Zulfiqar,0,0,1,1,0,0,0,0
+41,Dev,3,prgunase@microsoft.com,Praveen Gunasekaran,1,1,1,1,0,1,1,1
+43,Dev,2,marani@microsoft.com,Madhu Rani,1,0,0,0,1,0,0,1
+46,PM,3,perajan@microsoft.com,Pearl Rajan,1,0,0,0,0,0,0,0
+48,PM,2,seleonar@microsoft.com,Sean Leonard,0,0,1,1,1,1,0,1
+49,Dev,2,anfara@microsoft.com,Anthony Faraco-Hadlock (HE/HIM),1,1,0,1,1,1,1,0
+50,Cust Eng,2,karedd@microsoft.com,K N Manoj Reddy,0,0,0,0,0,0,1,0
+51,Dev,3,hkhedre@microsoft.com,Haitham Khedre,1,1,1,0,0,0,1,0
+53,Dev,2,gaukum@microsoft.com,Gaurav Kumar,0,1,0,0,0,0,1,0
+54,Dev,1,elmurumb@microsoft.com,Elsis Murumba,0,0,0,0,1,0,0,0
+57,PM,1,tommma@microsoft.com,Tommy Ma,0,0,0,1,0,0,1,0
+58,Dev,2,xingzho@microsoft.com,Steven Zhou (Identity UX),0,0,0,1,1,1,1,0
+59,Dev,3,nagdeepK@microsoft.com,Nagdeep Kongara,1,1,1,0,0,0,0,0
+60,PM,3,mahoekst@microsoft.com,Matthijs Hoekstra,0,0,0,0,1,0,1,0
+61,Dev,2,dawambug@microsoft.com,David Wambugu,0,1,0,0,0,0,1,0
+66,Dev,,bashirkunya@microsoft.com,Bashir Kunya,0,1,0,0,0,0,0,0
+71,Dev,2,jamaring@microsoft.com,James Ndegwa Maringa,0,1,0,1,0,0,0,0
+73,PM,3,HARSUR@microsoft.com,Harish S,0,0,0,0,0,0,1,0
+77,PM,3,plenzke@microsoft.com,Peter Lenzke,0,0,1,0,1,1,1,1
+79,Cust Eng,2,rotraves@microsoft.com,Rodrigo Travessa,1,1,1,0,1,1,0,1
+84,PM,2,grpickin@microsoft.com,Grace Picking,1,1,0,0,1,0,0,1
+85,PM,3,stvand@microsoft.com,Stefan van der Wiele,1,1,1,1,1,1,1,1
+89,PM,2,ewahome@microsoft.com,Eve Wahome,1,1,0,1,0,0,0,0
+92,Dev,2,ruangira@microsoft.com,Rudrani Angira,0,1,0,0,0,1,1,0
+93,Data Sci,4,mariapc@microsoft.com,Maria Puertas Calvo,1,1,0,0,0,1,0,1
+94,Dev,1,jhackshaw@microsoft.com,Jeff Hackshaw,0,0,0,0,0,0,1,0
+95,PM,1,yawoldeg@microsoft.com,Yafet Woldegabriel,1,0,0,1,1,0,0,0
+98,PM,3,aarthia@microsoft.com,Aarthi Hatter,1,1,1,1,1,0,0,0
+99,Dev,3,nemandar@microsoft.com,Neehar Mandaram,1,1,0,0,0,0,0,1
+101,PM,3,dhanyahk@microsoft.com,Dhanyah Krishnamoorthy (SHE/HER),1,1,0,0,0,1,0,0
+104,Dev,2,vigoel@microsoft.com,Vishakha Goel,0,0,0,0,1,1,0,0
+105,PM,3,sarbar@microsoft.com,Sarah Baranowski,1,1,0,1,0,1,0,1
+108,Dev,4,adjoh@microsoft.com,Adam Johnson,0,1,0,0,0,0,1,0
+109,PM,2,sama@microsoft.com,Sam Mak,1,1,1,1,0,0,1,1
+112,Dev,1,euoh@microsoft.com,Eugene Oh,1,1,1,0,0,0,0,1
+114,Dev,1,jokamau@microsoft.com,John Maina,1,1,1,1,0,0,0,0
+116,Dev,4,debhatta@microsoft.com,Debaprajna Bhattacharyya,1,1,0,0,0,1,0,0
+120,Dev,3,yreddy@microsoft.com,Yasovardhan Eswarawaka,0,0,1,0,0,0,0,0
+121,Dev,4,svytru@microsoft.com,Svyatoslav Trukhanov,0,1,0,0,0,1,1,0
+123,PM,1,jagran@microsoft.com,Janel Grant,0,0,0,0,0,1,1,1
+124,Dev,2,madalip@microsoft.com,Mahija (AZURE-IDENTITY) Daliparthi,1,1,0,1,1,0,0,0
+125,PM,1,hafowler@microsoft.com,Hannah Fowler,1,1,0,0,1,0,0,1
+126,PM,3,haaseeja@microsoft.com,Harsh Aseeja,1,1,1,0,0,0,0,1
+128,Dev,4,zhwa@microsoft.com,Z Wang,1,1,1,1,1,1,1,0
+129,PM,3,rhicock@microsoft.com,Robyn Hicock,1,1,1,1,1,1,1,1
+135,Dev,1,andreabaccin@microsoft.com,Andrea Baccin,0,0,0,0,0,1,1,0
