@@ -1,0 +1,75 @@
+Survey Number,Role,Band,Alias,Name,CareerAdvice,SkillsGrowth,ExpandNetwork,LifeAdvice,SocialConnection,LearnNewDiscipline,LearnNewTech,NewCareer
+1,Program Manager,4,teeearls@microsoft.com,Tee Earls,1,1,0,1,0,0,0,1
+2,Program Manager,3,shisriva@microsoft.com,Shivendra Srivastava,1,1,1,0,0,0,1,0
+3,Software Development Engineer,4,anagopal@microsoft.com,Anand Gopal,1,0,1,1,0,0,0,1
+4,Program Manager,4,ruizjuan@microsoft.com,Juan Camilo Ruiz,1,1,1,1,1,0,0,1
+5,Program Manager,3,michmcla@microsoft.com,Michael McLaughlin,1,1,0,1,1,1,1,1
+6,Customer Experience Team,2,sopand@microsoft.com,Sophia Pandey,1,0,1,1,1,0,0,0
+7,Software Development Engineer,3,jopalaci@microsoft.com,Jorge Luis Palacios Mata,0,1,0,1,0,0,0,0
+8,Software Development Engineer,4,svytru@microsoft.com,Svyatoslav Trukhanov,0,1,0,0,0,0,1,0
+9,Program Manager,4,ankpat@microsoft.com,Ankur Patel,1,1,0,0,0,0,0,0
+10,Program Manager,3,tspring@microsoft.com,Tim Springston,0,1,0,0,0,0,1,1
+11,Software Development Engineer,2,waqi@microsoft.com,Vicki Wang,1,1,0,0,0,0,0,0
+12,Software Development Engineer,4,rahulte@microsoft.com,Rahul Tewari,1,1,1,1,0,0,1,0
+13,Program Manager,3,sahandle@microsoft.com,Sarah Handler,0,1,1,0,1,1,0,0
+14,Program Manager,3,sumitp@microsoft.com,Sumit Parikh,1,1,1,1,0,0,0,1
+15,Software Development Engineer,3,tada@microsoft.com,Tad Alteneder,1,1,0,1,0,1,1,0
+16,Software Development Engineer,3,amarsin@microsoft.com,Amarpreet Singh,1,1,0,0,0,0,0,1
+17,Software Development Engineer,4,vandto@microsoft.com,Van To,1,1,0,1,0,0,0,1
+18,Program Manager,4,marlene@microsoft.com,Marlene Shaup,1,1,1,1,0,1,0,0
+19,Software Development Engineer,4,xinhe@ntdev.microsoft.com,Xin He,1,1,0,0,0,0,0,0
+20,Software Development Engineer,3,ramihaly@microsoft.com,Razvan Mihalyi,1,1,0,0,0,0,0,0
+21,Program Manager,5,robingo@microsoft.com,Robin Goldstein (SHE/HER),1,0,1,1,0,0,0,1
+22,Software Development Engineer,4,nsingh@microsoft.com,Navneet Hans,1,1,0,1,0,0,0,0
+23,Software Development Engineer,4,nadyal@microsoft.com,Nadya Lobalzo,0,1,0,0,0,1,0,1
+24,Software Development Engineer,4,olegsu@microsoft.com,Oleg Surmachev,1,0,1,1,0,0,0,0
+25,Program Manager,3,napuri@microsoft.com,Namrata Puri,1,1,0,1,1,1,0,0
+26,Software Development Engineer,3,misteed@microsoft.com,Mitch Steed,1,1,0,1,0,0,1,0
+27,Software Development Engineer,3,nemandar@microsoft.com,Neehar Mandaram,1,1,1,0,1,0,1,0
+28,Software Development Engineer,4,dileshd@microsoft.com,Dilesh Dhokia,1,1,0,1,1,0,0,1
+29,Program Manager,4,pedawoud@microsoft.com,Peter Dawoud,0,1,1,0,0,0,1,0
+30,Program Manager,3,jlu@microsoft.com,Jay Lu,1,1,0,0,0,1,0,0
+31,Customer Experience Team,4,anmorgan@microsoft.com,Andy Morgan,1,1,0,0,0,0,0,1
+32,Software Development Engineer,2,anchanda@microsoft.com,Ankita Chandak,0,1,0,0,1,0,0,0
+33,Customer Experience Team,4,harismo@microsoft.com,Haris Mohammad,1,1,1,1,1,1,1,0
+34,Software Development Engineer,3,shual@microsoft.com,Sherry Lu,0,1,0,1,0,0,0,0
+35,Program Manager,3,aakapo@microsoft.com,Aakashi Kapoor (SHE/HER),0,1,0,0,0,1,1,1
+36,Software Development Engineer,4,qiwan@microsoft.com,Qi Wang,1,1,1,0,0,1,1,1
+37,Software Development Engineer,4,huiwenr@ntdev.microsoft.com,Huiwen Ru,1,1,0,0,0,0,0,0
+38,Engineering Manager,4,manaya@microsoft.com,Madhusri Nayak,1,1,0,0,0,0,0,0
+39,Software Development Engineer,4,ransingh@microsoft.com,Randeep Singh,1,1,0,0,0,1,1,1
+40,Program Manager,3,jahule@microsoft.com,Jason Hulen,1,1,0,0,1,0,0,1
+41,Program Manager,3,japere@microsoft.com,Jasmine Betthauser,1,1,0,1,1,0,1,1
+42,Program Manager,3,chmutali@microsoft.com,Chetan Desai,1,1,1,1,0,0,1,1
+43,Customer Experience Team,4,namounir@microsoft.com,Nancy Mounir,1,1,1,0,1,1,0,1
+44,Software Development Engineer,2,rolukose@microsoft.com,Rohan Lukose,1,1,1,0,0,1,1,0
+45,Program Manager,4,annaba@ntdev.microsoft.com,Anna Barhudarian,1,1,0,0,0,0,0,0
+46,Engineering Manager,5,ataivanov@microsoft.com,Ata Ivanov,1,0,0,1,0,1,0,0
+47,Program Manager,3,marwa@microsoft.com,Marwa Abdeldayem,1,1,1,0,0,0,0,1
+48,Customer Experience Team,4,anupr@microsoft.com,Anup Reghunathan,1,1,1,1,0,0,0,0
+49,Program Manager,3,mahoekst@microsoft.com,Matthijs Hoekstra,1,1,0,0,0,0,0,1
+50,Software Development Engineer,4,amitdha@microsoft.com,Amit Dhariwal,1,1,0,0,0,0,0,0
+51,Software Development Engineer,3,ANDREABACCIN@microsoft.com,Andrea Baccin,1,1,0,0,1,0,1,0
+52,Software Development Engineer,3,bogdanenache@microsoft.com,Bogdan Enache,1,1,0,1,0,0,1,0
+53,Customer Experience Team,3,johano@microsoft.com,Johan Ohlén,0,1,1,1,1,0,0,0
+54,Program Manager,3,pareshn@microsoft.com,Paresh Nhathalal,0,1,1,0,0,0,0,0
+55,Software Development Engineer,3,chrisrie@microsoft.com,Chris Riebe,1,1,1,1,1,1,1,0
+56,Software Development Engineer,3,nnagrath@microsoft.com,Nimit Nagrath,1,1,0,1,0,1,0,0
+57,Software Development Engineer,4,dangodb@microsoft.com,Daniel Godbout,1,1,0,0,0,0,0,1
+58,Software Development Engineer,3,jevenk@microsoft.com,Jerry Venkataramani,1,1,1,0,0,0,0,0
+59,Software Development Engineer,3,kumarbh@microsoft.com,Kumar Bhamidipati,1,1,1,1,0,0,0,0
+60,Program Manager,3,frhuynh@microsoft.com,Frank Huynh,1,1,1,1,1,0,0,0
+61,Program Manager,3,medean@microsoft.com,Melissa DeAngelo (SHE/HER),1,1,1,1,1,0,0,1
+62,Program Manager,2,negoe@microsoft.com,Neha Goel,1,1,1,1,1,0,1,0
+63,Software Development Engineer,2,xiaofs@microsoft.com,Xiaofeng Su,0,1,0,1,0,0,0,0
+64,Software Development Engineer,4,alexrez@microsoft.com,Alex Reznick,1,1,0,0,0,0,0,1
+65,Program Manager,3,kkrishna@microsoft.com,Kalyan Krishna,1,1,0,0,0,1,1,0
+66,business management ,3,mimceach@microsoft.com,Michael McEachern,1,1,0,1,0,0,1,1
+67,Software Development Engineer,3,qinglin@microsoft.com,Qing Lin,1,1,0,0,0,0,0,0
+68,Software Development Engineer,4,someshc@microsoft.com,Somesh Chandra,1,1,0,0,0,1,0,1
+69,Program Manager,3,lucaspol@microsoft.com,Luca Spolidoro,1,1,0,0,0,1,0,1
+70,Program Manager,3,oleissy@microsoft.com,Omar El Leissy,1,1,1,1,1,0,1,0
+71,Software Development Engineer,3,lhui@microsoft.com,Hui Li,1,1,0,0,0,0,1,0
+72,Software Development Engineer,3,brgold@microsoft.com,Brian Golden,1,1,0,0,0,0,0,0
+73,Customer Experience Team,3,arielsc@microsoft.com,Ari Schorr,1,1,1,0,0,1,0,1
+74,Program Manager,1,jaedwards@microsoft.com,Jasmine Edwards,1,1,0,1,0,1,1,0

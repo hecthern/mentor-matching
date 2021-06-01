@@ -1,11 +1,18 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace MentorMatch
+namespace MentorMatch_O_Matic
 {
+    public enum PersonType
+    {
+        Mentor,
+        Mentee
+    }
     /// <summary>
     /// The bits folks are interested in mentoring or being mentored in
     /// </summary>
@@ -38,14 +45,14 @@ namespace MentorMatch
             string NewCareer,
             string Other)
         {
-            this.CareerAdvice = bool.Parse(CareerAdvice);
-            this.SkillsGrowth = bool.Parse(SkillsGrowth);
-            this.ExpandNetwork = bool.Parse(ExpandNetwork);
-            this.LifeAdvice = bool.Parse(LifeAdvice);
-            this.SocialConnection = bool.Parse(SocialConnection);
-            this.LearnDiscipline = bool.Parse(LearnDiscipline);
-            this.LearnTech = bool.Parse(LearnTech);
-            this.NewCareer = bool.Parse(NewCareer);
+            this.CareerAdvice = CareerAdvice.Equals("1");
+            this.SkillsGrowth = SkillsGrowth.Equals("1");
+            this.ExpandNetwork = ExpandNetwork.Equals("1");
+            this.LifeAdvice = LifeAdvice.Equals("1");
+            this.SocialConnection = SocialConnection.Equals("1");
+            this.LearnDiscipline = LearnDiscipline.Equals("1");
+            this.LearnTech = LearnTech.Equals("1");
+            this.NewCareer = NewCareer.Equals("1");
             this.Other = Other;
         }
 
@@ -114,7 +121,7 @@ namespace MentorMatch
         /// </summary>
         public Person(string data)
         {
-            var entries = data.Split(",");
+            var entries = data.Split(',');
 
             this.CanMentorItems = new Interest();
             this.WantMentorItems = new Interest();
@@ -123,15 +130,15 @@ namespace MentorMatch
             this.Role = entries[1].ToLower();
 
             if (!int.TryParse(entries[2], out this.Band))
-            { 
+            {
                 this.Band = -1;
             }
 
             this.Email = entries[3];
             this.Name = entries[4];
 
-            this.WantMentor = bool.Parse(entries[5]);
-            this.CanMentor = bool.Parse(entries[6]);
+            this.WantMentor = entries[5].Equals("Yes");
+            this.CanMentor = entries[6].Equals("Yes");
 
             this.WantMentorItems = new Interest(
                 entries[7],
@@ -156,6 +163,44 @@ namespace MentorMatch
                 entries[22],
                 entries[23],
                 null);
+        }
+
+        public Person(string line, PersonType type)
+        {
+            var items = line.Split(',');
+
+            Int32.TryParse(items[0], out this.Id);
+            this.Role = items[1];
+            Int32.TryParse(items[2], out this.Band);
+            this.Email = items[3];
+            this.Name = items[4];
+
+            if(type == PersonType.Mentee)
+                this.WantMentorItems = new Interest(
+                    items[5],
+                    items[6],
+                    items[7],
+                    items[8],
+                    items[9],
+                    items[10],
+                    items[11],
+                    items[12],
+                    null);
+
+            if(type == PersonType.Mentor)
+                this.CanMentorItems = new Interest(
+                    items[5],
+                    items[6],
+                    items[7],
+                    items[8],
+                    items[9],
+                    items[10],
+                    items[11],
+                    items[12],
+                    null);
+
+            this.IsMentored = false;
+            this.IsMentoring = 0;
         }
 
         /// <summary>
@@ -188,7 +233,7 @@ namespace MentorMatch
     class Program
     {
         // Run the model with a maximum of this many mentees per mentor.
-        const int MaxMentees = 3;
+        const int MaxMentees = 1;
 
         static void Main(string[] args)
         {
@@ -196,32 +241,61 @@ namespace MentorMatch
             //ParseSurveyFile("cando");
             //ParseSurveyFile("want");
 
+            var menteesList = ParseInputFile(@"../../Files/Mentees-input.csv", PersonType.Mentee);
+            var mentorsList = ParseInputFile(@"../../Files/Mentors.input.csv", PersonType.Mentor);
+
             // Re-exported parts of the excel doc to the minimal set of data needed for matching.
-            var personList = ParseMinimalSheet(@"C:\Users\peterzen\OneDrive - Microsoft\Desktop\MentorMinimal.txt");
+            //var personList = ParseMinimalSheet(@"C:\Users\peterzen\OneDrive - Microsoft\Desktop\MentorMinimal.txt");
+            //var personList = ParseMinimalSheet(@"C:\Users\pushkarb.REDMOND\OneDrive - Microsoft\Documents\Downloads\Match-o-matic input.csv");
 
             // Store off the list of eventual matches.
             List<Tuple<Person, Person>> matches = new List<Tuple<Person, Person>>();
 
             // Let's figure out how many different disciplines are represented, we'll later match by discipline
-            var disciplines = GetDisciplines(personList);
+            //var disciplines = GetDisciplines(personList);
+
+            var disciplines = new List<string>() { "Dev", "PM", "Data Sci" };
 
             foreach (var discipline in disciplines)
             {
-                var disciplinedPeople = GetPeopleByRole(discipline, personList);
+                var menteesByRole = GetPeopleByRole(discipline, menteesList);
+                var mentorsByRole = GetPeopleByRole(discipline, mentorsList);
 
-                for (int pass = 1; pass <= MaxMentees; pass++)
+                //var disciplinedPeople = GetPeopleByRole(discipline, personList);
+                if(menteesByRole.Count > 0 && mentorsByRole.Count > 0)
                 {
-                    var match = ProcessListOfUsers(disciplinedPeople, pass);
-                    matches.AddRange(match);
-                }
+                    for (int pass = 1; pass <= MaxMentees; pass++)
+                    {
+                        //var match = ProcessListOfPeople(disciplinedPeople, pass);
+                        var match = ProcessListOfPeople(mentorsByRole, menteesByRole, pass);
+                        matches.AddRange(match);
+                    }
 
-                var noMentor = disciplinedPeople.Where(x => x.IsMentored);
-                var NotMentoring = disciplinedPeople.Where(x => x.IsMentoring == 0);
+                    //var noMentor = disciplinedPeople.Where(x => x.IsMentored);
+                    //var NotMentoring = disciplinedPeople.Where(x => x.IsMentoring == 0);
+
+                    var noMentor = menteesByRole.Where(x => x.IsMentored);
+                    var NotMentoring = mentorsByRole.Where(x => x.IsMentoring == 0);
+                }
             }
 
             // Sort by survey ID and process the output in that order so we can re-import it into excel and have it line up.
             var orderedMatches = matches.OrderBy(x => x.Item1.Id);
             int id = 1;
+
+
+            StringBuilder matchedOutput = new StringBuilder();
+
+            matchedOutput.Append(string.Format("{0},{1},{2},{3},{4},{5},{6},{7}",
+                "Mentee Name",
+                "Mentee Email",
+                "Mentee Band",
+                "Mentor Name",
+                "Mentor Email",
+                "Mentor Band",
+                "Mentees Mentored",
+                "Areas of Interest Overlap"
+                ));
 
             foreach (var match in orderedMatches)
             {
@@ -231,8 +305,9 @@ namespace MentorMatch
                     id++;
                 }
 
-                Console.WriteLine("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
-                    match.Item1.Id,
+                matchedOutput.Append(Environment.NewLine);
+
+                matchedOutput.Append(string.Format("{0},{1},{2},{3},{4},{5},{6},{7}",
 
                     match.Item1.Name,
                     match.Item1.Email,
@@ -243,10 +318,18 @@ namespace MentorMatch
                     match.Item2.Band,
 
                     match.Item2.IsMentoring,
-                    Interest.Overlap(match.Item1.WantMentorItems, match.Item2.CanMentorItems));
+                    Interest.Overlap(match.Item1.WantMentorItems, match.Item2.CanMentorItems)));
 
                 id++;
             }
+
+            var outputFilePath = @"..\..\Files\MentorMatched.csv";
+            //var outputFilePath = @"C:\Users\pushkarb.REDMOND\OneDrive - Microsoft\Documents\Downloads\MentorMatched.csv";
+            File.Delete(outputFilePath);
+            var streamWriter = new StreamWriter(outputFilePath);
+            streamWriter.Write(matchedOutput.ToString());
+            streamWriter.Close();
+            //Console.WriteLine(matchedOutput.ToString());
 
         }
 
@@ -297,14 +380,14 @@ namespace MentorMatch
         /// <summary>
         /// Given a list of users, match them based on requests/willingness
         /// </summary>
-        public static List<Tuple<Person, Person>> ProcessListOfUsers(List<Person> people, int maxMentors)
+        public static List<Tuple<Person, Person>> ProcessListOfPeople(List<Person> people, int maxMentors)
         {
             var MentorList = people.Where(x => x.CanMentor && x.IsMentoring < maxMentors).ToList();
             var MenteeList = people.Where(x => x.WantMentor && !x.IsMentored).ToList();
 
             List<Tuple<Person, Person>> mentorMatch = new List<Tuple<Person, Person>>();
 
-            foreach(var p in MenteeList)
+            foreach (var p in MenteeList)
             {
                 var mentor = FindMentor(p, MentorList, maxMentors);
                 if (mentor != null)
@@ -315,7 +398,33 @@ namespace MentorMatch
                     mentor.IsMentoring++;
                     p.IsMentored = true;
                 }
-            } 
+            }
+
+            return mentorMatch;
+        }
+
+        /// <summary>
+        /// Given a list of users, match them based on requests/willingness
+        /// </summary>
+        public static List<Tuple<Person, Person>> ProcessListOfPeople(List<Person> mentors, List<Person> mentees, int maxMentors)
+        {
+            mentors = mentors.Where(x => x.IsMentoring < maxMentors).ToList();
+            mentees = mentees.Where(x => !x.IsMentored).ToList();
+
+            List<Tuple<Person, Person>> mentorMatch = new List<Tuple<Person, Person>>();
+
+            foreach (var p in mentees)
+            {
+                var mentor = FindMentor(p, mentors, maxMentors);
+                if (mentor != null)
+                {
+                    // Record output list, set person as mentoring
+                    mentorMatch.Add(new Tuple<Person, Person>(p, mentor));
+
+                    mentor.IsMentoring++;
+                    p.IsMentored = true;
+                }
+            }
 
             return mentorMatch;
         }
@@ -333,8 +442,8 @@ namespace MentorMatch
             int maxOverlap = 0;
             foreach (var mentor in mentors)
             {
-                int overlap = Interest.Overlap(p.WantMentorItems, mentor.CanMentorItems); 
-                if (overlap > maxOverlap && mentor.IsMentoring < maxMentors)
+                int overlap = Interest.Overlap(p.WantMentorItems, mentor.CanMentorItems);
+                if (overlap > maxOverlap && mentor.IsMentoring < maxMentors && !p.Email.Equals(mentor.Email))
                 {
                     mentorTarget = mentor;
                     maxOverlap = overlap;
@@ -358,7 +467,8 @@ namespace MentorMatch
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            var fileStream = new StreamReader("c:\\temp\\" + filename + ".txt");  // You know this is fancy if you're reading files out of temp.
+            // var fileStream = new StreamReader("c:\\temp\\" + filename + ".txt");  // You know this is fancy if you're reading files out of temp.
+            var fileStream = new StreamReader(@"C:\Users\pushkarb.REDMOND\OneDrive - Microsoft\Documents\Downloads\Match-o-matic input.csv");
 
             while (!fileStream.EndOfStream)
             {
@@ -372,7 +482,7 @@ namespace MentorMatch
                     continue;
                 }
 
-                var items = line.Split(";");
+                var items = line.Split(';');
 
                 foreach (var item in items)
                 {
@@ -402,10 +512,37 @@ namespace MentorMatch
                 stringBuilder.AppendLine(interest.ToString());
             }
 
-            var streamWriter = new StreamWriter("c:\\temp\\" + filename + ".csv");
+            // var streamWriter = new StreamWriter("c:\\temp\\" + filename + ".csv");
+            var streamWriter = new StreamWriter(@"C:\Users\pushkarb.REDMOND\OneDrive - Microsoft\Documents\Downloads\" + filename + ".csv");
             streamWriter.Write(stringBuilder.ToString());
             streamWriter.Close();
             Console.WriteLine(stringBuilder.ToString());
+        }
+
+        private static List<Person> ParseInputFile(string filename, PersonType type)
+        {
+            var Mentees = new List<Person>();
+
+            var stringBuilder = new StringBuilder();
+            var fileStream = new StreamReader(filename);
+            var line = fileStream.ReadLine();
+
+            while(!fileStream.EndOfStream)
+            {
+                Interest interest = new Interest();
+                line = fileStream.ReadLine();
+
+                // Maintain blank lines so that output rows line up with input rows
+                if (String.IsNullOrEmpty(line))
+                {
+                    stringBuilder.AppendLine(interest.ToString());
+                    continue;
+                }
+
+                Mentees.Add(new Person(line, type));
+            }
+
+            return Mentees;
         }
     }
 }
